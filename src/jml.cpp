@@ -110,7 +110,7 @@ int main(int argc, char **argv)
 	cout << " ************************************************************************" << endl;
 	cout << " *                                                                      *" << endl;
 	cout << " *  JML, version " << VERSION;
-	cout <<                    "                                                    *" << endl;
+	cout <<                       "                                                  *" << endl;
 	cout << " *  Copyright 2011-2014 by Simon Joly                                   *" << endl;
 	cout << " *                                                                      *" << endl;
 	cout << " *  ------------------------------------------------------------------  *" << endl;
