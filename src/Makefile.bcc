@@ -1,0 +1,52 @@
+# make file for JML for the Borland bcc32 compiler
+
+OBJS = jml.obj mcmccoal.obj seq-gen.obj global.obj evolve.obj model.obj nucmodels.obj\
+	aamodels.obj eigen.obj treefile.obj progress.obj gamma.obj twister.obj
+CFLAGS = -N -v -w -w-sig -w-dup
+#option: Use "-wsig" in the CFLAGS to have warnings about possible losses of significant digits.
+CC = bcc32 -Ic:\Borland\bcc55\include -Lc:\Borland\bcc55\Lib
+
+jml: $(OBJS)
+	$(CC) $(CFLAGS) -ejml.exe $(OBJS)
+
+jml.obj: jml.h MCMCcoal.c seq-gen.c jml.cpp treeinfo.h nexusdata.h GenFunctions.h MCMCcoal.h seq-gen.h
+	$(CC) $(CFLAGS) -c jml.cpp
+
+mcmccoal.obj: MCMCcoal.h MCMCcoal.c
+	$(CC) -c MCMCcoal.c
+
+seq-gen.obj: seq-gen.c seq-gen.h global.h treefile.h evolve.h model.h nucmodels.h aamodels.h progress.h twister.h
+	$(CC) -c seq-gen.c
+	
+aamodels.obj: aamodels.c aamodels.h
+	$(CC) -c aamodels.c
+
+eigen.obj: eigen.c eigen.h
+	$(CC) -c eigen.c
+
+evolve.obj: evolve.c evolve.h global.h tree.h
+	$(CC) -c evolve.c
+
+gamma.obj: gamma.c gamma.h
+	$(CC) -c gamma.c
+
+global.obj: global.c global.h
+	$(CC) -c global.c
+
+model.obj: model.c model.h
+	$(CC) -c model.c
+
+nucmodels.obj: nucmodels.c nucmodels.h
+	$(CC) -c nucmodels.c
+
+progress.obj: progress.c progress.h
+	$(CC) -c progress.c
+
+treefile.obj: treefile.c treefile.h
+	$(CC) -c treefile.c
+
+twister.obj: twister.c twister.h
+	$(CC) -c twister.c
+	
+clean:
+	del *.obj *.tds

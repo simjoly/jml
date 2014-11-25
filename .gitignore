@@ -1,0 +1,10 @@
+
+bin/jml_osx64
+
+bin/jml.exe
+
+*.xcworkspacedata
+
+*.xcuserstate
+
+*.xcbkptlist
