@@ -22,8 +22,9 @@ This program has been tested on a few datasets and appears to be behaving correc
 
 | Version | Date Released | Description |
 |---------|---------------|-------------|
-| 1.03    | 24 Nov 2014   | - Minor change in the code to make the program more stable when reading files.|
-|         |               | - Now accepts species names longer than 10 characters as the software now uses a relaxed phylip format for sequence files. |
+| 1.03    | 24 Nov 2014   | - Minor change in the code to make the program more stable when reading files.
+- Now accepts species names longer than 10 characters as the software now uses a relaxed phylip format for sequence files.|
+|         |               |  |
 | 1.02    | 22 May 2013   | - Minor issue corrected that caused the program to crash after the simulations when no sequence file was given as input. This had no impact on the results though. |
 |         |               | - The program gives more information on what it is exactly doing. This is in order to help find which file is problematic when the program crashes.|
 |         |               | - The program doesn't prompt for a sequence file anymore... this need to be given in the command line.|
@@ -49,7 +50,7 @@ When you are preparing your xml file in BEAUTi for the *BEAST run, you are asked
 
 I strongly suggest that you verify which ploidy types were used in *BEAST by inspecting the xml file as this can have a dramatic effect on the results obtained in jml. In the xml file, you need to go in the section called “collection of Gene Trees”. It should look likt this:
 
-'''xml
+```xml
 <!-- Collection of Gene Trees -->
 <geneTrees id="geneTrees">
     <gtree ploidy="1">
@@ -59,7 +60,7 @@ I strongly suggest that you verify which ploidy types were used in *BEAST by ins
         <treeModel idref="nuclear.treeModel"/>
     </gtree>
 </geneTrees>
-'''
+```
 
 Pay a close attention to the ploidy value given to each marker.
 
