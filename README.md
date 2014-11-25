@@ -2,11 +2,15 @@
 
 Testing hybridization using species trees
 
-Simon Joly
+joly.simon@gmail.com<br/>
+[Twitter](http://twitter.com/simjoly)
 
-Institut de recherche en biologie végétale, Université de Montréal & Montreal Botanical Garden, 4101 Sherbrooke Est, Montréal, Québec H1X 2B2; Email: simon.joly@umontreal.ca
+## License
 
-# Introduction
+Copyright (c) 2006-2014, Simon Joly<br/>
+Under the GPL 3 (a copy is located in the repository)
+
+## Introduction
 
 jml is a program that implements the statistical method of Joly et al. (2009) for detecting introgessed sequences. The method uses posterior predictive checking to test whether the minimum distance between sequences of two species is smaller than expected under a scenario that does not account for hybridization. If the observed distance is smaller than, say, 95% of the simulated valued, then we can conclude that lineage sorting can not explain the data and an hypothesis of hybridization can be accepted.
 
@@ -14,11 +18,11 @@ jml uses as input posterior distributions of species trees, population sizes and
 
 The jml program uses code from other programs to generate the posterior predictive distributions. Gene genealogies are generated using the same code as the MCMCcoal program [#yang2007mcmccoal] by Ziheng Yang and the sequences are simulated using code from the program seq-gen [#rambaut1997seqgenan], that is in part based on code from the software paml [#yang2007paml4]. 
 
-## Warning
+### Warning
 
 This program has been tested on a few datasets and appears to be behaving correctly. However, there ise no guaranty that is will perform correctly on all dataset. Please, use with care and thoroughly inspect the results to make sure they make sense. The program outputs a species tree in MCMCcoal format (newick format with '#' to indicate population sizes) to the buffer. Inspect it to make sure it looks fine. If it doesn't, then you should not trust the results. Please contact me if you find anything that looks anormal.
 
-# Version history
+## Version history
 
 | Version | Date Released  | Description |
 | :------ | :------------- | :---------- |
@@ -27,11 +31,11 @@ This program has been tested on a few datasets and appears to be behaving correc
 | 1.01    | 21 Fev 2012   |<ul><li>The program doesn't prompt for values. The values for the burnin, the thinning and the seed can be given in the control file.</li></ul>|
 | 1.01    | 5 Oct 2011    |<ul><li>Initial release.</li></ul>|
 
-# Compiling
+## Compiling
 
 A jml executable file for Windows OS is located in the 'bin' folder. Binaries for unix-based environments need to be compiled. Source files and a makefile are located in the folder 'src'. To compile jml, just go in the folder ./src and type make.
 
-# Input tree file
+## Input tree file
 
 jml takes as input tree files obtained with the software *BEAST, which is a slightly modified nexus format. This allows to incorporate uncertainty in the species tree topology as well as in the divergence times and mutational populations sizes. It is possible to input species tree from other program as long as the file is in the same type of nexus format as the *BEAST tree files (look at the examples for a typical file). It is also possible to fix a species tree topology. To do this, one would need to create a tree file in *BEAST format with the same tree repeated a number of times that is equal to the number of simulations to perform. If one wants to vary the population sizes and branch lengths but not the tree topology (such as when using the output of MCMCcoal) then each species tree in the tree file should have a distinct set of branch lengths and population sizes. Unfortunately, there is not tool available to convert an MCMCcoal (or IM) output into a *BEAST nexus tree format.
 
@@ -59,7 +63,7 @@ I strongly suggest that you verify which ploidy types were used in *BEAST by ins
 
 Pay a close attention to the ploidy value given to each marker.
 
-# Performing simulations
+## Performing simulations
 
 The executable should be in the same folder as the species tree file (*.species.trees) to perform the simulations. The folder should also contain the jml control file (jml.ctl) as well as the sequence file (optional) if you want to calculate exact probabilities of the minimum observed distances.
 
@@ -159,7 +163,7 @@ This file is only output if a sequence file was provided. It contains all the pa
 
 These three files are constantly written to and read from during the simulations. You should not erase them while the program is running, but you can delete them once the simulations are over.
 
-# Interpretation of the results
+## Interpretation of the results
 
 Different approaches can be used for interpreting results from posterior predictive checking. An intuitive one is to interpret the p-value(s) directly. The p-values estimated by jml are posterior probabilities [#gelman2009bayesian] and can be interpreted as the probability that the model will generate a minimum distance between sequences of two species smaller than that observed from the data, given the data. However appealing is this interpretation, it could lead to statistical issues when multiple tests are performed. Indeed, the need to correct for multiple statistical testing (Rice 1989) diminishes the likelihood of finding statistically significant results. This is especially problematic for the present application because the large variance in mutation rate for short sequences, combined with the difficulty to get long nucleotide sequence stretches that lack evidence of recombination in practice, result in power issues [#joly2009astatistical]. The problem is even more acute when the approach is used in an explorative way, that is if there are no a priori hypotheses of hybridization to test and if jml is only used to investigate the presence of hybridization in the dataset. In such cases, all pairwise species comparisons can be tested simultaneously and the statistical power will be greatly affected. To minimize power issues it could thus be important to specify hybridization hypotheses a priori without reference to the sequence data.
 
@@ -167,7 +171,7 @@ There is an alternative interpretation of posterior predictive checking, which i
 
 Regardless of the multiple comparison issues associated with posterior predictive checking, there are two points that should always be kept in mind when interpreting results from jml. First, posterior predictive checking is a test of the model and not of hybridization. If one rejects the model (bifurcating species tree without gene flow), this may well be because of the presence of hybridization, although it could also be due to other properties of the data such as undetected gene duplication, population substructure along the branches of the phylogeny, and parallel evolution. The second point to take into account is that a lack of evidence for hybridization with jml should not be interpreted as an absolute absence of hybridization in the dataset because (1) a lack of statistical significance can also be caused by a lack of data and that (2) not all hybridization events leave a detectable molecular signature [#joly2006incorporating, #joly2009astatistical].
 
-## Non posterior predicting checking applications
+### Non posterior predicting checking applications
 
 Several users are tempted to use jml in the following way. First, they observe that one marker that has an incongruent evolutionary history compared to others (frequently, the mtDNA is incongruent relative to nuclear markers). They then want to test if the evolutionary history of the mtDNA marker is significantly different from that of the nuclear genes. To do this, they reconstruct a species tree with the nuclear genes and then test using jml if you can reject a scenario of incomplete lineage sorting for the mtDNA marker.
 
@@ -175,13 +179,13 @@ This type of use is completely different in phylosophy than the standard posteri
 
 For this reason, I do not personnally recommend such an approach. I think the posterior predictive approach, which is an approach that checks for model adequacy, is more appropriate and conservative. It also does not assume that the reconstructed species tree is accurate. It just tests whether a bifurcating species tree with no migration is a good fit for the data. It is true that the results obtained might not be as significant, but “introgressed” sequenced should become more easily identified as more genes are included in the analysis.
 
-# Memory issues
+## Memory issues
 
 jml requires a lot of memory to store the numerous distances matrix used to generate the posterior predictive distributions. Consequently, it is possible that the program runs out of memory. So if the program crashes unexpectedly while performing the simulations, it is quite likely that it is because the program has run out of memory. If this happens, try running the software on a computer that has more virtual memory or reduce the number of simulation performed (e.g., by sampling the MCMC chain less frequently in jml).
 
 The source code of the program is also presently set up to allow a maximum of 50 species. If your dataset has more species, you will need to change the value of 'NSPECIES' in the file MCMCcoal.c and recompile the program.
 
-# Frequently Asked Questions (FAQ)
+## Frequently Asked Questions (FAQ)
 
 Several pairwise species tests are reported in the output file “Probabilities.txt”. Should I change anything to the input files if I only want to test a few pairwise species comparisons? I worry about the issue of multiple statistical testing.
 
@@ -189,7 +193,7 @@ Although JML reports statistical tests for all pairwise species comparison in th
 
 For instance, imagine that you have one species for which a gene is strongly incongruent with the other genes. Then, a logical hypothesis to test would involve only this species and the species with which this species cluster in the “incongruent” gene phylogeny. So even if there are 100 species in your dataset (and thus N(N-1)/2 = 4950 species comparisons), you need only to consider one result in the output file. If more than one hypothesis has to be tested, then you should correct the significance results with an appropriate method (e.g., a sequential Bonferroni correction). JML outputs all the results at once to leave the decision to the user. 
 
-# Citing jml
+## Citing jml
 
 Please cite the following publication when using jml:
 
