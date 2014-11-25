@@ -2,7 +2,7 @@
  |                                              |
  |                     JML                      |
  |                                              |
- |                version 1.03                  |
+ |               version 1.3.0                  |
  |                                              |
  |----------------------------------------------|
  |                                              |
@@ -14,8 +14,8 @@
  \**********************************************/
 
 /*
-		JML, version 1.03
-		copyright (c) Simon Joly, 2011-2014
+	JML, version 1.3.0
+    copyright (c) Simon Joly, 2011-2014
 		
     JML is a free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -110,14 +110,14 @@ int main(int argc, char **argv)
 	cout << " ************************************************************************" << endl;
 	cout << " *                                                                      *" << endl;
 	cout << " *  JML, version " << VERSION;
-	cout <<                      "                                                   *" << endl;
+	cout <<                     "                                                    *" << endl;
 	cout << " *  Copyright 2011-2014 by Simon Joly                                   *" << endl;
 	cout << " *                                                                      *" << endl;
 	cout << " *  ------------------------------------------------------------------  *" << endl;
 	cout << " *                                                                      *" << endl;
 	cout << " *  This is a free software and it comes with absolutely no warranty.   *" << endl;
 	cout << " *  You can redistribute the software and/or modify it under the terms  *" << endl;
-	cout << " *  of the GNU General Public License version 2. See the GNU General    *" << endl;
+	cout << " *  of the GNU General Public License version 3. See the GNU General    *" << endl;
 	cout << " *  Public License for more details (file gpl.txt that comes with the   *" << endl;
 	cout << " *  source files).                                                      *" << endl;
 	cout << " *                                                                      *" << endl;
@@ -184,31 +184,6 @@ int main(int argc, char **argv)
 	readcontrolfile();
 	convertseqgencommands();
 	if (data_file != "") CalMinDist();
-/* Remove prompting for sequence file in version 1.02
-	else {
-		char selection;
-		for (;;)
-			{
-			cout << endl << " Do you want to calculate the observed minimum distances? (y/n) ";
-			cin >> selection;
-			switch (toupper(selection))
-				{
-				case 'Y':
-					cout << " Enter the correct name of the sequence data file: ";
-					cin >> data_file;
-					CalMinDist();
-					break;
-				case 'N':
-					break;
-				default:
-					cout << endl << " *** Not a valid selection ***" << endl;
-					cout << " Enter a valid choice: Y or N" << endl;
-					continue;
-				}
-			break;
-			}
-		}
-*/	
 	Tree a_tree;
 	a_tree.enterlocusrate(locusrate);
 	a_tree.enterheredityscalar(heredityscalar);
@@ -504,9 +479,6 @@ int main(int argc, char **argv)
 		//cout << " The matrix of minimum distances can be found in the file \"MinimumDistances.txt\"" << endl;
 		cout << " Significant results (p < " << significancelevel << ") can be found in the file \"Results.txt\"" << endl;
 		}
-	//cout << " Press Enter to exit the program..." << endl;
-	//getchar();
-	//cin.get();
     cout << endl;
 	return 0;
 }

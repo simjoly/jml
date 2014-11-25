@@ -8,3 +8,6 @@ bin/jml.exe
 *.xcuserstate
 
 *.xcbkptlist
+
+manual/*.*
+*.xccheckout

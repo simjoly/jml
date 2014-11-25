@@ -1,8 +1,8 @@
 /**********************************************\
  |                                              |
- |                     JML                      | 
+ |                     JML                      |
  |                                              |
- |                version 1.03                  |
+ |               version 1.3.0                  |
  |                                              |
  |----------------------------------------------|
  |                                              |
@@ -14,7 +14,7 @@
  \**********************************************/
 
 /*
-    JML, version 1.03
+    JML, version 1.3.0
     copyright (c) Simon Joly, 2011-2013
 		
     JML is a free software; you can redistribute it and/or modify
@@ -39,6 +39,6 @@
 #include "MCMCcoal.h"
 #include "seq-gen.h"
 
-#define VERSION "1.03"
+#define VERSION "1.3.0"
 
 #endif /* _JML_H_ */
