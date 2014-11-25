@@ -26,10 +26,10 @@ This program has been tested on a few datasets and appears to be behaving correc
 
 | Version | Date Released  | Description |
 | :------ | :------------- | :---------- |
-| 1.03    | 24 Nov 2014   |<ul><li>Minor change in the code to make the program more stable when reading files.</li><li>Now accepts species names longer than 10 characters as the software now uses a relaxed phylip format for sequence files.</li></ul>|
-| 1.02    | 22 May 2013   |<ul><li>Minor issue corrected that caused the program to crash after the simulations when no sequence file was given as input. This had no impact on the results though.</li><li>The program gives more information on what it is exactly doing. This is in order to help find which file is problematic when the program crashes.</li><li>The program doesn't prompt for a sequence file anymore... this need to be given in the command line.</li><li>jml outputs the usage with the '-h' flag on the command line.</li></ul>|
-| 1.01    | 21 Fev 2012   |<ul><li>The program doesn't prompt for values. The values for the burnin, the thinning and the seed can be given in the control file.</li></ul>|
-| 1.01    | 5 Oct 2011    |<ul><li>Initial release.</li></ul>|
+| 1.3.0    | 24 Nov 2014   |<ul><li>Minor change in the code to make the program more stable when reading files.</li><li>Now accepts species names longer than 10 characters as the software now uses a relaxed phylip format for sequence files.</li></ul>|
+| 1.2    | 22 May 2013   |<ul><li>Minor issue corrected that caused the program to crash after the simulations when no sequence file was given as input. This had no impact on the results though.</li><li>The program gives more information on what it is exactly doing. This is in order to help find which file is problematic when the program crashes.</li><li>The program doesn't prompt for a sequence file anymore... this need to be given in the command line.</li><li>jml outputs the usage with the '-h' flag on the command line.</li></ul>|
+| 1.1    | 21 Fev 2012   |<ul><li>The program doesn't prompt for values. The values for the burnin, the thinning and the seed can be given in the control file.</li></ul>|
+| 1.0    | 5 Oct 2011    |<ul><li>Initial release.</li></ul>|
 
 ## Compiling
 
