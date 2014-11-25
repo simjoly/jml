@@ -1,6 +1,5 @@
 # jml
-
-Testing hybridization using species trees
+## Testing hybridization using species trees
 
 Simon Joly
 
@@ -22,8 +21,7 @@ This program has been tested on a few datasets and appears to be behaving correc
 
 | Version | Date Released | Description |
 |---------|---------------|-------------|
-| 1.03    | 24 Nov 2014   | - Minor change in the code to make the program more stable when reading files.
-- Now accepts species names longer than 10 characters as the software now uses a relaxed phylip format for sequence files.|
+| 1.03    | 24 Nov 2014   | <ul><li>Minor change in the code to make the program more stable when reading files.</li><li>Now accepts species names longer than 10 characters as the software now uses a relaxed phylip format for sequence files</li></ul>|
 |         |               |  |
 | 1.02    | 22 May 2013   | - Minor issue corrected that caused the program to crash after the simulations when no sequence file was given as input. This had no impact on the results though. |
 |         |               | - The program gives more information on what it is exactly doing. This is in order to help find which file is problematic when the program crashes.|
