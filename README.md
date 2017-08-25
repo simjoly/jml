@@ -69,19 +69,19 @@ The executable should be in the same folder as the species tree file (*.species.
 
 Some information need to be given to jml to perform the simulations. This information is given in a control file named jml.ctl. The format of the control file is simple: each line contains a command name, followed by an 'equal' sign, and then by the value(s) that go(es) with the command. The following commands should be present in the control file. An example control file (/jml/example/jml.tpi.ctl) is provided with the program. 
 
-### speciesnames
+### species
 
 You need to provide the name of the species present in the species trees provided. Make sure that the name are identical to those present in the species tree file. There needs to be at least one white space between each species.
 
-    speciesnames = homo chimp gorilla
+    species = homo chimp gorilla
 
 IMPORTANT: jml presently use a strict phylip format when writing the sequence files. For this reason, it is strongly recommended that you limit the name of species to a maximum of 7 characters. Presently, long species name could cause the program to crash or give incorrect results. It may also be a good idea to use these names also in *BEAST to make the work flow smoother.
 
-### seqinspecies
+### seqperspecies
 
-For each species name provided in the speciesnames command, you need to provide the number of sequences present in the original dataset for each species. It is IMPORTANT to follow the same order as the speciesnames block.
+For each species name provided in the `species` command, you need to provide the number of sequences present in the original dataset for each species. It is IMPORTANT to follow the same order as the `species` block.
 
-    seqinspecies = 4 5 3
+    seqperspecies = 4 5 3
 
 ### locusrate [DEFAULT = 1]
 
