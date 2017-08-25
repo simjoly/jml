@@ -1,20 +1,20 @@
-# jml
+# JML
 
 Testing hybridization using species trees
 
 joly.simon@gmail.com<br/>
 [Twitter](http://twitter.com/simjoly)
 
-Copyright (c) 2006-2014, Simon Joly<br/>
+Copyright (c) 2006-2017, Simon Joly<br/>
 Under the GPL 3 (a copy is located in the repository)
 
 ## Introduction
 
-jml is a program that implements the statistical method of Joly et al. (2009) for detecting introgessed sequences. The method uses posterior predictive checking to test whether the minimum distance between sequences of two species is smaller than expected under a scenario that does not account for hybridization. If the observed distance is smaller than, say, 95% of the simulated valued, then we can conclude that lineage sorting can not explain the data and an hypothesis of hybridization can be accepted.
+JML is a program that implements the statistical method of Joly et al. (2009) for detecting introgessed sequences. The method uses posterior predictive checking to test whether the minimum distance between sequences of two species is smaller than expected under a scenario that does not account for hybridization. If the observed distance is smaller than, say, 95% of the simulated valued, then we can conclude that lineage sorting can not explain the data and an hypothesis of hybridization can be accepted.
 
-jml uses as input posterior distributions of species trees, population sizes and divergence times. It can thus fully incorporate the uncertainty involved with these estimates, which can often be important, when testing hypotheses of hybridization. Practicaly, this is done by using the output of the *beast, a recently developped method that is implemented in beast. jml then samples species trees (with branch lengths and population sizes) from the Markov Chain Monte Carlo output and for each species tree, it simulates gene trees, then DNA sequences and finally estimates the minimum distance between sequences for all pairs of species. This will generate posterior predictive distributions that can then be used to estimate the p-values of empirical minimum sequences distances between species.
+JML uses as input posterior distributions of species trees, population sizes and divergence times. It can thus fully incorporate the uncertainty involved with these estimates, which can often be important, when testing hypotheses of hybridization. Practicaly, this is done by using the output of the *beast, a recently developped method that is implemented in beast. jml then samples species trees (with branch lengths and population sizes) from the Markov Chain Monte Carlo output and for each species tree, it simulates gene trees, then DNA sequences and finally estimates the minimum distance between sequences for all pairs of species. This will generate posterior predictive distributions that can then be used to estimate the p-values of empirical minimum sequences distances between species.
 
-The jml program uses code from other programs to generate the posterior predictive distributions. Gene genealogies are generated using the same code as the MCMCcoal program [#yang2007mcmccoal] by Ziheng Yang and the sequences are simulated using code from the program seq-gen [#rambaut1997seqgenan], that is in part based on code from the software paml [#yang2007paml4]. 
+The JML program uses code from other programs to generate the posterior predictive distributions. Gene genealogies are generated using the same code as the MCMCcoal program [#yang2007mcmccoal] by Ziheng Yang and the sequences are simulated using code from the program seq-gen [#rambaut1997seqgenan], that is in part based on code from the software paml [#yang2007paml4]. 
 
 ### Warning
 
@@ -24,7 +24,8 @@ This program has been tested on a few datasets and appears to be behaving correc
 
 | Version | Date Released  | Description |
 | :------ | :------------- | :---------- |
-| 1.3.0    | 24 Nov 2014   |<ul><li>Minor change in the code to make the program more stable when reading files.</li><li>Now accepts species names longer than 10 characters as the software now uses a relaxed phylip format for sequence files.</li></ul>|
+| 1.3.1   | 25 Aug 2017   |<ul><li>Fix a small bug that caused JML to crash when there were white spaces at the end of (some) lines in the control file.</li><li>Corrected two mistakes in the manual.</li></ul>|
+| 1.3.0   | 24 Nov 2014   |<ul><li>Minor change in the code to make the program more stable when reading files.</li><li>Now accepts species names longer than 10 characters as the software now uses a relaxed phylip format for sequence files.</li></ul>|
 | 1.2    | 22 May 2013   |<ul><li>Minor issue corrected that caused the program to crash after the simulations when no sequence file was given as input. This had no impact on the results though.</li><li>The program gives more information on what it is exactly doing. This is in order to help find which file is problematic when the program crashes.</li><li>The program doesn't prompt for a sequence file anymore... this need to be given in the command line.</li><li>jml outputs the usage with the '-h' flag on the command line.</li></ul>|
 | 1.1    | 21 Fev 2012   |<ul><li>The program doesn't prompt for values. The values for the burnin, the thinning and the seed can be given in the control file.</li></ul>|
 | 1.0    | 5 Oct 2011    |<ul><li>Initial release.</li></ul>|

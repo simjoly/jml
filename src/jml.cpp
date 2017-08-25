@@ -634,7 +634,7 @@ void readcontrolfile(void)
 	
 	while(!controlfile.eof()) {
 		getline(controlfile,lineofdata);
-//cout << lineofdata << endl;
+        //cout << lineofdata << endl;
 		cursor=0;
 		tempstring="";
 		if ( (cursor) == (int)lineofdata.length()) break;       //Skip white lines...
@@ -690,7 +690,7 @@ void readcontrolfile(void)
 //cout << string_to_int(tempstring) << " ";
 				if ( (cursor) == (int)lineofdata.length()) break;
 				while (strchr(" \t\v\r\f\n",lineofdata[cursor])) cursor++;  //strip white spaces
-				if ( (cursor) == (int)lineofdata.length()) break;
+                break;
 				}			
 			}
 		else if (To_Uppercase(tempstring) == "HEREDITYSCALAR") {
@@ -703,7 +703,7 @@ void readcontrolfile(void)
 				heredityscalar = string_to_double(tempstring);
 				if ( (cursor) == (int)lineofdata.length()) break;
 				while (strchr(" \t\v\r\f\n",lineofdata[cursor])) cursor++;  //strip white spaces
-				if ( (cursor) == (int)lineofdata.length()) break;
+				break;
 				}
 			}
 		else if (To_Uppercase(tempstring) == "SEQGENCOMMAND") {
@@ -732,7 +732,7 @@ void readcontrolfile(void)
 				significancelevel = string_to_double(tempstring);
 				if ( (cursor) == (int)lineofdata.length()) break;
 				while (strchr(" \t\v\r\f\n",lineofdata[cursor])) cursor++;  //strip white spaces
-				if ( (cursor) == (int)lineofdata.length()) break;
+				break;
             }
         }
 		else if (To_Uppercase(tempstring) == "BURNIN") {
@@ -745,7 +745,7 @@ void readcontrolfile(void)
 				burnin = string_to_int(tempstring);
 				if ( (cursor) == (int)lineofdata.length()) break;
 				while (strchr(" \t\v\r\f\n",lineofdata[cursor])) cursor++;  //strip white spaces
-				if ( (cursor) == (int)lineofdata.length()) break;
+				break;
             }
         }
 		else if (To_Uppercase(tempstring) == "THINNING") {
@@ -758,7 +758,7 @@ void readcontrolfile(void)
 				jump = string_to_int(tempstring);
 				if ( (cursor) == (int)lineofdata.length()) break;
 				while (strchr(" \t\v\r\f\n",lineofdata[cursor])) cursor++;  //strip white spaces
-				if ( (cursor) == (int)lineofdata.length()) break;
+				break;
             }
         }
 		else if (To_Uppercase(tempstring) == "SEED") {
@@ -771,7 +771,7 @@ void readcontrolfile(void)
 				seed = string_to_int(tempstring);
 				if ( (cursor) == (int)lineofdata.length()) break;
 				while (strchr(" \t\v\r\f\n",lineofdata[cursor])) cursor++;  //strip white spaces
-				if ( (cursor) == (int)lineofdata.length()) break;
+				break;
             }
         }
     }
